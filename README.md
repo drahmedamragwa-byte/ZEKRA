@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEKRA | ذكرى</title>
-    <!-- استيراد خطوط عربية وإنجليزية مناسبة للتصميم -->
+    <title>ذكرى | ZEKRA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --primary-color: #513658;
-            --accent-color: #8B5F96;
-            --bg-color: #faf8f5;
+            --primary-color: #6b4c68;
+            --accent-color: #8b6b88;
+            --bg-color: #faf8f9;
             --text-dark: #2c222e;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --shadow: 0 10px 30px rgba(81, 54, 88, 0.08);
+            --card-bg: #ffffff;
+            --shadow: 0 10px 25px rgba(107, 76, 104, 0.08);
         }
 
         * {
@@ -31,250 +29,181 @@
             background-color: var(--bg-color);
             color: var(--text-dark);
             min-height: 100vh;
-            overflow-x: hidden;
-            background-image: radial-gradient(#e0d7e5 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-
-        /* Hero Section - يأخذ الشاشة كاملة في البداية */
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            padding: 20px;
-        }
-
-        .logo-wrapper {
-            margin-bottom: 20px;
-            animation: fadeInZoom 1.5s ease-out forwards;
-        }
-
-        .brand-title {
-            font-family: 'Amiri', serif;
-            font-size: 4rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .brand-subtitle {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 6px;
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            animation: bounce 2s infinite;
+            padding: 20px 15px;
         }
 
-        .scroll-hint i {
-            font-size: 1.2rem;
-        }
-
-        /* Content Container - يظهر عند التمرير لأسفل */
-        .content-container {
+        .container {
+            width: 100%;
             max-width: 480px;
-            margin: 0 auto;
-            padding: 0 20px 60px 20px;
-        }
-
-        /* روابط التواصل الاجتماعي */
-        .links-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
+            align-items: center;
         }
 
-        .link-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(139, 95, 150, 0.15);
-            padding: 16px 24px;
-            border-radius: 16px;
+        /* Hero Animation & Logo Section */
+        .logo-wrapper {
+            margin: 30px 0 20px;
+            text-align: center;
+            animation: fadeInZoom 1.2s ease-out forwards;
+        }
+
+        .logo-img {
+            width: 180px;
+            height: auto;
+            max-width: 100%;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* Social Buttons */
+        .buttons-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(107, 76, 104, 0.15);
+            border-radius: 50px;
+            padding: 14px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
             color: var(--text-dark);
-            box-shadow: var(--shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .link-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
-            box-shadow: 0 15px 35px rgba(81, 54, 88, 0.12);
-        }
-
-        .link-info {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .link-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: rgba(139, 95, 150, 0.1);
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .link-title {
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-content i {
+            font-size: 1.3rem;
+            color: var(--primary-color);
         }
 
         .arrow-icon {
-            color: var(--accent-color);
             font-size: 0.9rem;
-            transition: transform 0.3s;
+            color: var(--accent-color);
         }
 
-        .link-card:hover .arrow-icon {
-            transform: translateX(-5px);
-        }
-
-        /* كروت النصوص والعبارات */
+        /* Information Cards */
         .text-card {
             background: var(--card-bg);
-            border: 1px solid rgba(139, 95, 150, 0.15);
-            border-radius: 20px;
-            padding: 30px 24px;
+            border: 1px solid rgba(107, 76, 104, 0.1);
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
             box-shadow: var(--shadow);
-            margin-bottom: 24px;
+            margin-bottom: 15px;
+            width: 100%;
         }
 
-        .card-header {
-            font-family: 'Amiri', serif;
-            font-size: 1.5rem;
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .card-body {
-            font-size: 1rem;
+            font-size: 0.92rem;
             color: #555;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .footer-note {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
+            font-size: 0.85rem;
             color: var(--accent-color);
-            font-size: 0.9rem;
-            font-style: italic;
         }
 
-        /* الأنيميشن */
         @keyframes fadeInZoom {
             0% {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.85);
             }
             100% {
                 opacity: 1;
                 transform: scale(1);
             }
         }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
     </style>
 </head>
 <body>
 
-    <!-- الجزء الأول: الاسم يملأ نصف الشاشة أولاً -->
-    <section class="hero-section">
+    <div class="container">
+        <!-- Logo Section -->
         <div class="logo-wrapper">
-            <h1 class="brand-title">ذِكْرى</h1>
-            <div class="brand-subtitle">ZEKRA</div>
+            <img src="https://raw.githubusercontent.com/drahmedamragwa-byte/ZEKRA/main/80252.png" alt="ذكرى ZEKRA" class="logo-img">
         </div>
-        <div class="scroll-hint">
-            <span>اسحب للأسفل</span>
-            <i class="fa-solid fa-chevron-down"></i>
-        </div>
-    </section>
 
-    <!-- الجزء الثاني: المحتوى الذي يظهر بعد التمرير لأسفل -->
-    <div class="content-container">
-        
-        <!-- روابط وسائل التواصل الاجتماعي -->
-        <div class="links-wrapper">
-            <a href="https://instagram.com" class="link-card" target="_blank">
-                <div class="link-info">
-                    <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
-                    <span class="link-title">Instagram</span>
+        <p class="subtitle">صُنع بحب.. لكل تفصيلة زفاف ومناسبة خاصة ♡</p>
+
+        <!-- Social Media Links -->
+        <div class="buttons-wrapper">
+            <a href="https://www.instagram.com/zekra_store.eg?stkn=djhvNnMxNGpocGdv" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
                 </div>
-                <i class="fa-solid fa-arrow-left arrow-icon"></i>
+                <i class="fas fa-chevron-left arrow-icon"></i>
             </a>
 
-            <a href="https://facebook.com" class="link-card" target="_blank">
-                <div class="link-info">
-                    <div class="link-icon"><i class="fa-brands fa-facebook-f"></i></div>
-                    <span class="link-title">Facebook</span>
+            <a href="https://www.facebook.com/share/1DVedBNMVj/" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
                 </div>
-                <i class="fa-solid fa-arrow-left arrow-icon"></i>
+                <i class="fas fa-chevron-left arrow-icon"></i>
             </a>
 
-            <a href="https://tiktok.com" class="link-card" target="_blank">
-                <div class="link-info">
-                    <div class="link-icon"><i class="fa-brands fa-tiktok"></i></div>
-                    <span class="link-title">TikTok</span>
+            <a href="#" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
                 </div>
-                <i class="fa-solid fa-arrow-left arrow-icon"></i>
+                <i class="fas fa-chevron-left arrow-icon"></i>
             </a>
         </div>
 
-        <!-- الكروت النصية الخاصة بالعلامة التجارية -->
+        <!-- Details Cards -->
         <div class="text-card">
-            <div class="card-header">Handmade with love</div>
-            <p class="card-body">
-                Every little detail is made with love.<br>
-                Created especially for your beautiful memory.
-            </p>
-        </div>
-
-        <div class="text-card">
-            <p class="card-body">
-                Follow Zahra & start close to every little detail.
-            </p>
+            <div class="card-title">Handmade with love</div>
+            <div class="card-body">
+                كل قطعة تُصنع بكل حب وعناية خصيصاً لتُخلد أجمل ذكرياتكم.
+            </div>
         </div>
 
         <div class="footer-note">
-            Made with love. Zikra. ♡
+            Made with love. Zikra ♡
         </div>
-
     </div>
 
 </body>
