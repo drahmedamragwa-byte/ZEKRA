@@ -1,274 +1,281 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ذكرى - Zikra</title>
+    <title>ZEKRA | ذكرى</title>
+    <!-- استيراد خطوط عربية وإنجليزية مناسبة للتصميم -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-color: #f7dcd5;
-            --text-color: #4a4a4a;
-            --accent-color: #d4a373;
-            --button-bg: #ffffff;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --arabic-font: 'Amiri', serif;
+            --primary-color: #513658;
+            --accent-color: #8B5F96;
+            --bg-color: #faf8f5;
+            --text-dark: #2c222e;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --shadow: 0 10px 30px rgba(81, 54, 88, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-family);
-            background-color: #fcf9f6;
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
+            background-image: radial-gradient(#e0d7e5 1px, transparent 1px);
+            background-size: 24px 24px;
         }
 
-        /* Decorative Background Elements */
-        .bg-element {
+        /* Hero Section - يأخذ الشاشة كاملة في البداية */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .logo-wrapper {
+            margin-bottom: 20px;
+            animation: fadeInZoom 1.5s ease-out forwards;
+        }
+
+        .brand-title {
+            font-family: 'Amiri', serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .brand-subtitle {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 6px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .scroll-hint {
             position: absolute;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .flower-top-left {
-            top: 20px;
-            left: 20px;
-            width: 80px;
-        }
-
-        .bouquet-right {
-            top: 100px;
-            right: -50px;
-            width: 250px;
-        }
-
-        .mirror-left {
-            bottom: 100px;
-            left: -30px;
-            width: 150px;
-        }
-
-        .thread-bottom-right {
-            bottom: 50px;
-            right: 20px;
-            width: 100px;
-        }
-
-        .handheld-top-right {
-            top: 20px;
-            right: 20px;
-            width: 40px;
-        }
-
-        /* Main Content Wrapper */
-        .container {
-            position: relative;
-            z-index: 1;
-            width: 90%;
-            max-width: 500px;
+            bottom: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            padding-top: 30px;
+            gap: 10px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
         }
 
-        /* Logo Animation */
-        .logo-container {
-            margin-bottom: 20px;
+        .scroll-hint i {
+            font-size: 1.2rem;
         }
 
-        .logo {
-            width: 120px;
-            height: auto;
-            animation: growLogo 1.5s ease-out forwards;
+        /* Content Container - يظهر عند التمرير لأسفل */
+        .content-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
         }
 
-        @keyframes growLogo {
-            0% {
-                transform: scale(0.2);
-                opacity: 0;
-            }
-            60% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Social Buttons */
-        .buttons-wrapper {
-            width: 100%;
+        /* روابط التواصل الاجتماعي */
+        .links-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
             margin-bottom: 40px;
         }
 
-        .btn {
-            background-color: var(--button-bg);
-            border: 1px solid var(--primary-color);
-            border-radius: 50px;
-            padding: 15px 25px;
+        .link-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(139, 95, 150, 0.15);
+            padding: 16px 24px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .btn:hover {
+        .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             border-color: var(--accent-color);
+            box-shadow: 0 15px 35px rgba(81, 54, 88, 0.12);
         }
 
-        .btn-content {
+        .link-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
         }
 
-        .btn-logo {
-            width: 24px;
-            height: 24px;
-        }
-
-        .arrow {
-            width: 16px;
-            height: 16px;
-            opacity: 0.5;
-        }
-
-        /* Footer Typography */
-        .footer-section {
+        .link-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(139, 95, 150, 0.1);
+            color: var(--primary-color);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 15px;
-            width: 100%;
-            padding-bottom: 20px;
-        }
-
-        .handmade-text {
-            font-family: var(--arabic-font);
+            justify-content: center;
             font-size: 1.2rem;
-            color: var(--text-color);
-            position: relative;
         }
 
-        .underline-text {
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 10px;
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .slogan {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 80%;
-        }
-
-        .follow-text {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .link-title {
             font-weight: 500;
-            color: var(--text-color);
+            font-size: 1.1rem;
         }
 
-        .heart-icon {
-            width: 16px;
-            height: 16px;
-            fill: rgba(212, 163, 115, 0.7);
+        .arrow-icon {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            transition: transform 0.3s;
         }
 
-        .copyright {
-            font-size: 0.8rem;
-            color: #8a8a8a;
-            margin-top: 10px;
+        .link-card:hover .arrow-icon {
+            transform: translateX(-5px);
         }
 
+        /* كروت النصوص والعبارات */
+        .text-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(139, 95, 150, 0.15);
+            border-radius: 20px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .card-body {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* الأنيميشن */
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
     </style>
-    <!-- Importing Amiri font for elegant Arabic text -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Background Decorative Elements -->
-    <!-- Replace placeholder image URLs with your actual decorative images -->
-    <img src="https://img.icons8.com/ios/100/d4a373/flower.png" alt="flower" class="bg-element flower-top-left">
-    <img src="https://img.icons8.com/ios/250/d4a373/rose.png" alt="bouquet" class="bg-element bouquet-right">
-    <img src="https://img.icons8.com/ios/150/d4a373/mirror.png" alt="mirror" class="bg-element mirror-left">
-    <img src="https://img.icons8.com/ios/100/d4a373/sewing-needle.png" alt="thread and needle" class="bg-element thread-bottom-right">
-    <img src="https://img.icons8.com/ios/50/d4a373/flower.png" alt="small flower" class="bg-element handheld-top-right">
-
-    <div class="container">
-        <!-- Logo Section with Animation -->
-        <div class="logo-container">
-            <!-- Replace with your actual logo URL -->
-            <img src="https://via.placeholder.com/150/f7dcd5/4a4a4a?text=Zikra+Logo" alt="Logo" class="logo">
+    <!-- الجزء الأول: الاسم يملأ نصف الشاشة أولاً -->
+    <section class="hero-section">
+        <div class="logo-wrapper">
+            <h1 class="brand-title">ذِكْرى</h1>
+            <div class="brand-subtitle">ZEKRA</div>
         </div>
+        <div class="scroll-hint">
+            <span>اسحب للأسفل</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
 
-        <!-- Social Media Buttons -->
-        <div class="buttons-wrapper">
-            <a href="https://www.instagram.com" class="btn" target="_blank">
-                <div class="btn-content">
-                    <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram" class="btn-logo">
-                    <span>Instagram</span>
+    <!-- الجزء الثاني: المحتوى الذي يظهر بعد التمرير لأسفل -->
+    <div class="content-container">
+        
+        <!-- روابط وسائل التواصل الاجتماعي -->
+        <div class="links-wrapper">
+            <a href="https://instagram.com" class="link-card" target="_blank">
+                <div class="link-info">
+                    <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <span class="link-title">Instagram</span>
                 </div>
-                <img src="https://img.icons8.com/ios-filled/50/4a4a4a/long-arrow-right.png" alt="arrow" class="arrow">
+                <i class="fa-solid fa-arrow-left arrow-icon"></i>
             </a>
 
-            <a href="https://www.facebook.com" class="btn" target="_blank">
-                <div class="btn-content">
-                    <img src="https://img.icons8.com/fluency/48/facebook-new.png" alt="Facebook" class="btn-logo">
-                    <span>Facebook</span>
+            <a href="https://facebook.com" class="link-card" target="_blank">
+                <div class="link-info">
+                    <div class="link-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <span class="link-title">Facebook</span>
                 </div>
-                <img src="https://img.icons8.com/ios-filled/50/4a4a4a/long-arrow-right.png" alt="arrow" class="arrow">
+                <i class="fa-solid fa-arrow-left arrow-icon"></i>
             </a>
 
-            <a href="https://www.tiktok.com" class="btn" target="_blank">
-                <div class="btn-content">
-                    <img src="https://img.icons8.com/fluency/48/tiktok.png" alt="TikTok" class="btn-logo">
-                    <span>TikTok</span>
+            <a href="https://tiktok.com" class="link-card" target="_blank">
+                <div class="link-info">
+                    <div class="link-icon"><i class="fa-brands fa-tiktok"></i></div>
+                    <span class="link-title">TikTok</span>
                 </div>
-                <img src="https://img.icons8.com/ios-filled/50/4a4a4a/long-arrow-right.png" alt="arrow" class="arrow">
+                <i class="fa-solid fa-arrow-left arrow-icon"></i>
             </a>
         </div>
 
-        <!-- Footer Section with Slogans -->
-        <div class="footer-section">
-            <div class="underline-text">
-                <div class="handmade-text">Handmade with love</div>
-                <div class="slogan">Every little detail is made with love. Created especially for your beautiful memory.</div>
-            </div>
-
-            <div class="follow-text">
-                <span>Follow Zahra & start close to every little detail</span>
-                <svg class="heart-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-            </div>
-
-            <div class="copyright">
-                Made with love. Zikra.
-            </div>
+        <!-- الكروت النصية الخاصة بالعلامة التجارية -->
+        <div class="text-card">
+            <div class="card-header">Handmade with love</div>
+            <p class="card-body">
+                Every little detail is made with love.<br>
+                Created especially for your beautiful memory.
+            </p>
         </div>
+
+        <div class="text-card">
+            <p class="card-body">
+                Follow Zahra & start close to every little detail.
+            </p>
+        </div>
+
+        <div class="footer-note">
+            Made with love. Zikra. ♡
+        </div>
+
     </div>
 
 </body>
 </html>
- ZEKRA
